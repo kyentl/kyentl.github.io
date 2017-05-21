@@ -1,6 +1,6 @@
 //https://api.foursquare.com/v2/venues/VENUE_ID/herenow
 //https://maps.googleapis.com/maps/api/place/details/json?key=xxx&placeid=parameters
-
+"use strict";
 //get places near: https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=xxx&location=lat,long&radius=meters&opennow&type=type
 
 var testLong = 3.101275;
@@ -54,15 +54,13 @@ function search() {
 
 function initialize() {
 
-
     map = new google.maps.Map(document.getElementById('map'), {
         center: myLocation,
         zoom: 15
     });
-    service = new google.maps.places.PlacesService(map)
+    service = new google.maps.places.PlacesService(map);
 
 
-    ;
 
 }
 
@@ -71,7 +69,15 @@ function callback(results, status) {
     if (status == google.maps.places.PlacesServiceStatus.OK) {
         for (var i = 0; i < results.length; i++) {
             var place = results[i];
-           google.maps.createMarker(results[i]);
+           var marker = new google.maps.Marker({
+               location: new google.maps.LatLng(testLat, testLong),
+               visible: true,
+               title: "opp",
+               map: map
+
+           });
+
+
         }
     }
 }

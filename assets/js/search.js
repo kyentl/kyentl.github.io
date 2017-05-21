@@ -11,7 +11,7 @@ var myLocation = new google.maps.LatLng(testLat, testLong);
 $(document).ready(
     $('select').material_select(),
     //initialize(),
-    search(),
+    initRange(),
     $("#mylocationsButton").click(function(){   $("#mylocations").toggle(400)   }),
     $('#searchButton').click(function(event) {
         event.preventDefault();
@@ -33,17 +33,6 @@ function search() {
     };
     service.nearbySearch(request, callback);
 
-    /* $.ajax({
-     dataType: "jsonp",
-     method: "GET",
-     url: " https://maps.googleapis.com/maps/api/place/nearbysearch/json",
-     data: {key: "AIzaSyBFe-d_rFQwfSX3z2Er3Hh3pWxBrjns-MQ", location: testLat + "," + testLong, radius: testRadius}
-     })
-     .done(function (data) {
-     // console.dir(data);
-     });
-
-     */
 }
 
 
@@ -59,4 +48,35 @@ function callback(results, status) {
 
         }
     }
+}
+
+
+
+function initRange(){
+    var html5Slider = document.getElementById('rangeSlider');;
+    var select = document.getElementById('range');
+    noUiSlider.create(html5Slider, {
+        start: 10,
+        step: 1,
+
+        range: {
+            'min': 1,
+            'max': 20
+        },
+        pips: { // Show a scale with the slider
+            mode: 'steps',
+            stepped: true,
+            density: 1
+        }
+    });
+
+
+    html5Slider.noUiSlider.on('update', function(){
+        $('#range').val(html5Slider.noUiSlider.get());
+    });
+
+    $('#range').change(function(){
+        html5Slider.noUiSlider.set(select.value);
+
+    })
 }

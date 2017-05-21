@@ -12,10 +12,12 @@
 
     <link rel="stylesheet" href="assets/css/materialize.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/nouislider.min.css">
     <link rel="stylesheet" href="assets/css/main.css">
     <script src="assets/js/jquery-3.2.1.min.js"></script>
     <script src="assets/js/materialize.js"></script>
-    <script type="text/javascript" src="https://maps.google.com/maps/api/js?key=AIzaSyAwFXi06r3fXhg-g8e19amfNrWKTDQP5KA&libraries=places"></script>
+    <script type="text/javascript"
+            src="https://maps.google.com/maps/api/js?key=AIzaSyAwFXi06r3fXhg-g8e19amfNrWKTDQP5KA&libraries=places"></script>
 </head>
 <body>
 <!--[if lt IE 8]>
@@ -25,22 +27,22 @@
 
 <!-- Add your site or application content here navigation my location place pin drop exit cancel label delete-->
 <header>
-        <nav>
-            <div class="nav-wrapper cyan darken-2 z-depth-4">
-                <a href="" class="brand-logo">Serenity</a>
-                <a href="#" data-activates="mobile-nav" class="button-collapse right"><i class="material-icons">menu</i></a>
-                <ul class="right hide-on-med-and-down">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="Manage">Manage</a></li>
-                    <li><a href="mobile.html">Log out</a></li>
-                </ul>
-                <ul class="side-nav teal darken-3" id="mobile-nav">
-                    <li><a href="index.html"><i class="material-icons">home</i>Home</a></li>
-                    <li><a href="Manage"><i class="material-icons">settings</i>Manage</a></li>
-                    <li><a href="mobile.html"><i class="material-icons">power_settings_new</i>Logout</a></li>
-                </ul>
-            </div>
-        </nav>
+    <nav>
+        <div class="nav-wrapper cyan darken-2 z-depth-4">
+            <a href="" class="brand-logo">Serenity</a>
+            <a href="#" data-activates="mobile-nav" class="button-collapse right"><i class="material-icons">menu</i></a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="Manage">Manage</a></li>
+                <li><a href="mobile.html">Log out</a></li>
+            </ul>
+            <ul class="side-nav teal darken-3" id="mobile-nav">
+                <li><a href="index.html"><i class="material-icons">home</i>Home</a></li>
+                <li><a href="Manage"><i class="material-icons">settings</i>Manage</a></li>
+                <li><a href="mobile.html"><i class="material-icons">power_settings_new</i>Logout</a></li>
+            </ul>
+        </div>
+    </nav>
 </header>
 <section class="content">
 
@@ -53,14 +55,17 @@
                     <option value="bar">stores</option>
                 </select>
                 <div class="row">
-                    <div class="col s8">
-                        <input type="range" id="range" name="range" min="0" max="20"/>
+                    <div class="col s1 labelbox"><label for="rangeSlider">Range</label></div>
+                    <div class="col s9">
+                        <div id="rangeSlider"></div>
                     </div>
-                    <div class="col s4">
-
+                    <div class="col s1">
+                        <input type="number" min="1" max="20" step="1" id="range" class="validate" placeholder="11">
                     </div>
+                    <div class="col s1"><span>km</span></div>
 
                 </div>
+
                 <input type="submit" id="searchButton" value="Search">
             </form>
         </div>
@@ -69,10 +74,26 @@
 
     <div class="container" id="locationscontainer">
         <div class="row">
-            <a class="waves-effect waves-light btn-flat"><i class="material-icons left">place</i>My
-                locations</a>
-            <div class="col s12 margintop" id="searchResults">
+            <h1>Search results</h1>
+            <div class="col s12" id="searchResults">
+                <div class="result1">
+                    <div class="row">
+                        <div class="col s8">Naam van het etablissement bla</div>
+                        <div class="col s1 offset-s1">200</div>
+                        <div class="col s1 offset-s1">5000</div>
+                    </div>
+                    <div class="row hideUnhide" id="hideUnhide1">
+                        <span>Address:</span>
 
+                        <span>Phone</span>
+                        <span>Open until:</span>
+
+                        <div class="col s6"></div>
+                        <div class="col s6"></div>
+
+
+                    </div>
+                </div>
 
             </div>
         </div>
@@ -82,7 +103,8 @@
 </section>
 <script>window.jQuery || document.write('<script src="assets/js/vendor/jquery-{{JQUERY_VERSION}}.min.js"><\/script>')</script>
 <script src="assets/js/plugins.js"></script>
-<script src="assets/js/main.js"></script>
+
+<script src="assets/js/nouislider.min.js"></script>
 <script>
 
     $(".button-collapse").sideNav({

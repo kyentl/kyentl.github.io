@@ -166,7 +166,33 @@ section>div {
     color: #ffffff;
 }
 
+#rangeSlider {
+    vertical-align: middle;
+}
 
+
+h1 {
+    color: #00695c;
+    font-size:  1.5rem;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+#searchResults{
+    border-style: solid;
+    border-color: #0097a7;
+    border-width: 1px;
+}
+
+.result {
+    margin-top: 1rem;
+}
+
+.hideUnhide span{
+    display: block;
+    margin-left: 4rem;
+
+}
 
 
 

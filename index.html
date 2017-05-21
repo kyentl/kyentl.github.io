@@ -1,0 +1,96 @@
+<!doctype html>
+<html class="no-js" lang="">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="manifest" href="manifest.json">
+    <!-- Place favicon.ico in the root directory -->
+
+    <link rel="stylesheet" href="assets/css/materialize.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <script src="assets/js/jquery-3.2.1.min.js"></script>
+    <script src="assets/js/materialize.js"></script>
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyAwFXi06r3fXhg-g8e19amfNrWKTDQP5KA&libraries=places"></script>
+</head>
+<body>
+<!--[if lt IE 8]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> to improve your experience.</p>
+<![endif]-->
+
+<!-- Add your site or application content here navigation my location place pin drop exit cancel label delete-->
+<header>
+    <div class="navbar-fixed">
+        <nav>
+            <div class="nav-wrapper cyan darken-2 z-depth-4">
+                <a href="" class="brand-logo">Serenity</a>
+                <a href="#" data-activates="mobile-nav" class="button-collapse right"><i class="material-icons">menu</i></a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="Manage">Manage</a></li>
+                    <li><a href="mobile.html">Log out</a></li>
+                </ul>
+                <ul class="side-nav teal darken-3" id="mobile-nav">
+                    <li><a href="Manage"><i class="material-icons">settings</i>Manage</a></li>
+                    <li><a href="mobile.html"><i class="material-icons">power_settings_new</i>Logout</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</header>
+<section class="content">
+
+    <div class="container" id="buttoncontainer">
+        <div class="row">
+            <a class="waves-effect waves-light btn-large teal darken-3 col s12" href="Search.html"><i class="material-icons left">place</i>Find
+                a new
+                location</a>
+        </div>
+    </div>
+
+    <div class="container" id="locationscontainer">
+        <div class="row">
+            <a class="waves-effect waves-light btn-flat" id="mylocationsButton"><i class="material-icons left">place</i>My
+                locations</a>
+        <br>
+            <div class="col s12 margintop" id="mylocations">
+                <p>test</p>
+                <p>test</p>
+                <p>test</p>
+                <p>test</p>
+                <p>test</p>
+                <p>test</p>
+                <p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p>
+
+            </div>
+        </div>
+    </div>
+
+  <!--  <div class="container" id="mapscontainer">
+        <div class="row">
+
+        </div>
+    </div>-->
+    <div id="map"></div>
+</section>
+<script>window.jQuery || document.write('<script src="assets/js/vendor/jquery-{{JQUERY_VERSION}}.min.js"><\/script>')</script>
+<script src="assets/js/plugins.js"></script>
+<script src="assets/js/main.js"></script>
+<script>
+
+    $(".button-collapse").sideNav({
+        menuWidth: 200, // Default is 300
+        edge: 'right', // Choose the horizontal origin
+
+
+    });
+</script>
+
+
+</body>
+</html>

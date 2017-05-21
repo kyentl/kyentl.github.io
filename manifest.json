@@ -1,12 +1,14 @@
 {
+  "lang": "en-US",
   "name": "Serenity",
   "short_name": "Serenity",
-  "start_url": ".",
+  "start_url": "index.html",
   "display": "standalone",
+  "orientation": "portrait-primary",
   "theme_color": "#0097a7",
   "background_color": "#fff",
   "scope": "",
-  "description": "Find ",
+  "description": "Avoid busy locations",
   "icons": [{
     "src": "favicon.ico",
     "sizes": "32x32",

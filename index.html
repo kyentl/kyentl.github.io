@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="assets/css/main.css">
     <script src="assets/js/jquery-3.2.1.min.js"></script>
     <script src="assets/js/materialize.js"></script>
-    <script type="text/javascript" src="https://maps.google.com/maps/api/js?key=AIzaSyAwFXi06r3fXhg-g8e19amfNrWKTDQP5KA&libraries=places"></script>
+
 </head>
 <body>
 <!--[if lt IE 8]>
@@ -26,22 +26,23 @@
 
 <!-- Add your site or application content here navigation my location place pin drop exit cancel label delete-->
 <header>
-    <div class="navbar-fixed">
+
         <nav>
             <div class="nav-wrapper cyan darken-2 z-depth-4">
                 <a href="" class="brand-logo">Serenity</a>
                 <a href="#" data-activates="mobile-nav" class="button-collapse right"><i class="material-icons">menu</i></a>
                 <ul class="right hide-on-med-and-down">
-                    <li><a href="Manage">Manage</a></li>
+                    <li><a href="manage.html">Manage</a></li>
                     <li><a href="mobile.html">Log out</a></li>
                 </ul>
                 <ul class="side-nav teal darken-3" id="mobile-nav">
-                    <li><a href="Manage"><i class="material-icons">settings</i>Manage</a></li>
+                    <li><a href="manage.html"><i class="material-icons">settings</i>Manage</a></li>
                     <li><a href="mobile.html"><i class="material-icons">power_settings_new</i>Logout</a></li>
+                    <li><a href="manage.html">test</a></li>
                 </ul>
             </div>
         </nav>
-    </div>
+
 </header>
 <section class="content">
 
@@ -80,7 +81,7 @@
 </section>
 <script>window.jQuery || document.write('<script src="assets/js/vendor/jquery-{{JQUERY_VERSION}}.min.js"><\/script>')</script>
 <script src="assets/js/plugins.js"></script>
-<script src="assets/js/main.js"></script>
+
 <script>
 
     $(".button-collapse").sideNav({
@@ -91,6 +92,8 @@
     });
 </script>
 
+<script type="text/javascript" src="https://maps.google.com/maps/api/js?key=AIzaSyAwFXi06r3fXhg-g8e19amfNrWKTDQP5KA&libraries=places"></script>
 
+<script src="assets/js/main.js"></script>
 </body>
 </html>

@@ -48,25 +48,26 @@
 
     <div class="container" id="searchContainer">
         <div class="row">
-            <form class="col s12">
-                <select name="category">
+            <form>
+
+                <div class="col s12"><select name="category" id="category">
                     <option value="bar" selected>All categories</option>
                     <option value="bar">bars</option>
-                    <option value="bar">stores</option>
-                </select>
-                <div class="row">
-                    <div class="col s1 labelbox"><label for="rangeSlider">Range</label></div>
-                    <div class="col s9">
-                        <div id="rangeSlider"></div>
-                    </div>
-                    <div class="col s1">
-                        <input type="number" min="1" max="20" step="1" id="range" class="validate" placeholder="11">
-                    </div>
-                    <div class="col s1"><span>km</span></div>
+                    <option value="store">stores</option>
+                </select></div>
 
+
+                <div class="col s12">
+                    <label for="rangeSlider">Range</label>
+                    <div class="flex">
+                        <div id="rangeSlider"></div>
+
+                        <input type="number" min="1" max="20" step="1" id="range" class="validate" placeholder="11">
+                        <span>km</span></div>
                 </div>
 
-                <input type="submit" id="searchButton" value="Search">
+
+                <div class="col s12"><input type="submit" id="searchButton" value="Search"></div>
             </form>
         </div>
     </div>
@@ -79,14 +80,14 @@
                 <div class="result1">
                     <div class="row">
                         <div class="col s8">Naam van het etablissement bla</div>
-                        <div class="col s1 offset-s1">200</div>
-                        <div class="col s1 offset-s1">5000</div>
+                        <div class="col s2">200</div>
+                        <div class="col s2">5000</div>
                     </div>
                     <div class="row hideUnhide" id="hideUnhide1">
-                        <span>Address:</span>
+                        <div class="col s12"><span>Address:</span>
 
-                        <span>Phone</span>
-                        <span>Open until:</span>
+                            <span>Phone</span>
+                            <span>Open until:</span></div>
 
                         <div class="col s6"></div>
                         <div class="col s6"></div>
@@ -98,7 +99,7 @@
             </div>
         </div>
     </div>
-
+    <div id="map"></div>
 
 </section>
 <script>window.jQuery || document.write('<script src="assets/js/vendor/jquery-{{JQUERY_VERSION}}.min.js"><\/script>')</script>

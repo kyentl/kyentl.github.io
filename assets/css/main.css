@@ -185,15 +185,22 @@ h1 {
     border-width: 1px;
     height: 20vh;
     overflow-y: scroll;
+    background-color: #00695c;
+    color: white;
+    border-radius: 1rem;
 }
 
 .result {
-    margin-top: 1rem;
+    padding-top: 1rem;
+
+    border-bottom: dotted;
+    border-width: 1px;
 }
 
 .hideUnhide span{
     display: block;
-    margin-left: 4rem;
+    padding--left: 1rem;
+
 
 
 }

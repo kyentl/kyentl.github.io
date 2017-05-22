@@ -2,6 +2,7 @@
   "lang": "en-US",
   "name": "Serenity",
   "short_name": "Serenity",
+  "start_url": "index.html",
   "display": "standalone",
   "orientation": "portrait-primary",
   "theme_color": "#0097a7",

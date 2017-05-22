@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="manifest" href="/manifest.json">
     <!-- Place favicon.ico in the root directory -->
 
     <link rel="stylesheet" href="assets/css/materialize.css">
@@ -62,7 +63,7 @@
                     <div class="flex">
                         <div id="rangeSlider"></div>
 
-                        <input type="number" min="1" max="20" step="1" id="range" class="validate" placeholder="11">
+                        <input type="number" min="1" max="10" step="1" id="range" class="validate" placeholder="5">
                         <span>km</span></div>
                 </div>
 
@@ -77,7 +78,7 @@
         <div class="row">
             <h1>Search results</h1>
             <div class="col s12" id="searchResults">
-                <div class="result1">
+                <div class="result1 teal darken-3">
                     <div class="row">
                         <div class="col s8">Naam van het etablissement bla</div>
                         <div class="col s2">200</div>
@@ -87,10 +88,12 @@
                         <div class="col s12"><span>Address:</span>
 
                             <span>Phone</span>
-                            <span>Open until:</span></div>
+                            <span>Open until:</span>
+                        </div>
 
-                        <div class="col s6"></div>
-                        <div class="col s6"></div>
+                        <div class="col s6 center-align"><a href="index.html"><i class="medium material-icons">label</i></a>
+                        </div>
+                        <div class="col s6 center-align"><a href="Manage"><i class="medium material-icons">navigation</i></a></div>
 
 
                     </div>

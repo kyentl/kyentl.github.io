@@ -1,11 +1,10 @@
 
 var testLong = 3.101275;
 var testLat = 51.066835;
-var testRadius = 1000;
 var testType = ""
 var map;
 var service;
-var infowindow;
+var searchResults;
 var myLocation = new google.maps.LatLng(testLat, testLong);
 
 $(document).ready(
@@ -19,11 +18,12 @@ $(document).ready(
         
     })
 
+
 )
 
 function initialize() {
     getLocation();
-    initializeFacebook();
+
     //initializeMap();
     //search();
 
@@ -36,7 +36,7 @@ function getLocation(initializeMap) {
     if (navigator.geolocation) {
         navigator.geolocation.watchPosition(showPosition);
     } else {
-        console.dir("no geoloc")
+        console.dir("no geolocation found")
     }
 
 }
@@ -63,20 +63,6 @@ function initializeMap() {
 
 }
 
-function initializeFacebook() {
-    $.ajax({
-        url: "http://fiddle.jshell.net/favicon.png",
-        beforeSend: function( xhr ) {
-            xhr.overrideMimeType( "text/plain; charset=x-user-defined" );
-        }
-    })
-        .done(function( data ) {
-            if ( console && console.log ) {
-                console.log( "Sample of data:", data.slice( 0, 100 ) );
-            }
-        });
-
-}
 
 function search() {
     $('#searchResults').empty();
@@ -97,6 +83,7 @@ function search() {
 function callback(results, status) {
     console.dir(results);
     if (status == google.maps.places.PlacesServiceStatus.OK) {
+        searchResults = results;
         for (var i = 0; i < results.length; i++) {
             var place = results[i];
             marker = new google.maps.Marker({
@@ -107,7 +94,7 @@ function callback(results, status) {
 
 
 
-            $('#searchResults').append('<div class="result" id="'+i+'"> <div class="row"> <div class="col s8"><span id="name'+i+'">Naam van het etablissement bla</span></div> <div class="col s2" id="distance'+i+'">200</div> <div class="col s2" id="hereNow'+i+'"></div> </div> <div class="row hideUnhide" id="hideUnhide"> <div class="col s12"><span id="address'+i+'">Address:</span> <span id="phone'+i+'">Phone</span> <span id="maxHour'+i+'">Open until:</span></div> <div class="col s6"></div> <div class="col s6"></div> </div> </div>')
+            $('#searchResults').append('<div class="result" id="'+i+'"> <div class="row"> <div class="col s8"><span id="name'+i+'">Naam van het etablissement bla</span></div> <div class="col s2" id="distance'+i+'">200</div> <div class="col s2" id="hereNow'+i+'"></div> </div> <div class="row hideUnhide" id="hideUnhide'+i+'"> <div class="col s12"><span id="address'+i+'">Address:</span> <span id="phone'+i+'">Phone</span> <span id="maxHour'+i+'">Open until:</span></div> <div class="col s6"></div> <div class="col s6"></div> <div class="col s6 center-align"><i class="medium material-icons save" id="save'+i+'">label</i> </div> <div class="col s6 center-align"><a href="Manage"><i class="medium material-icons navigate" id="navigate'+i+'">navigation</i></a></div></div> </div>')
 
             $('#name'+i).html(place.name);
             $('#phone'+i).append('testje');
@@ -159,8 +146,24 @@ function callback(results, status) {
 
 
         }
+
+        $(".result").click(function(){
+            var id = $(this).attr('id');
+            $("#hideUnhide"+id).toggle(400);
+        })
+        $(".save").click(function(){
+            var id = $(this).parent().parent().parent().attr('id');
+            console.dir(id);
+        })
     }
 }
+
+
+/*
+ ########## DOM ELEMENTS, INITIALISATION OF THE DOCUMENT
+*/
+
+
 
 
 

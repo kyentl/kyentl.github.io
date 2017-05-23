@@ -49,12 +49,21 @@
 
     <div class="container" id="searchContainer">
         <div class="row">
+            <a class="btn-floating btn-large waves-effect waves-light teal darken-3" id="searchIcon"><i class="material-icons">search</i></a>
             <form>
 
-                <div class="col s12"><select name="category" id="category">
-                    <option value="bar" selected>All categories</option>
+                <div class="col s12"><select name="category" class="validate" id="category" required>
+                    <option value="" selected disabled>All categories</option>
+                    <option value="movie_theater">movie theaters</option>
+                    <option value="cafe">cafes</option>
                     <option value="bar">bars</option>
                     <option value="store">stores</option>
+                    <option value="shopping_mall">shopping malls</option>
+                    <option value="stadium">stadiums</option>
+                    <option value="gym">gyms</option>
+                    <option value="train_station">train stations</option>
+                    <option value="musuem">museums</option>
+                    <option value="restaurant">restaurants</option>
                 </select></div>
 
 
@@ -67,8 +76,10 @@
                         <span>km</span></div>
                 </div>
 
-
-                <div class="col s12"><input type="submit" id="searchButton" value="Search"></div>
+                <div class="col s12"><button class="btn waves-effect waves-light" type="submit" id="searchButton" name="action">Search
+                    <i class="material-icons right">send</i>
+                </button></div>
+                
             </form>
         </div>
     </div>
@@ -78,26 +89,17 @@
         <div class="row">
             <h1>Search results</h1>
             <div class="col s12 scrollbox" id="searchResults">
-                <div class="result teal darken-3">
-                    <div class="row">
-                        <div class="col s8">Naam van het etablissement bla</div>
-                        <div class="col s2">200</div>
-                        <div class="col s2">5000</div>
+                <div class="loaderbox center-align" ><div class="preloader-wrapper big active center-align valign-wrapper">
+                    <div class="spinner-layer spinner-blue-only">
+                        <div class="circle-clipper left">
+                            <div class="circle"></div>
+                        </div><div class="gap-patch">
+                        <div class="circle"></div>
+                    </div><div class="circle-clipper right">
+                        <div class="circle"></div>
                     </div>
-                    <div class="row hideUnhide" id="hideUnhide1">
-                        <div class="col s12"><span>Address:</span>
-
-                            <span>Phone</span>
-                            <span>Open until:</span>
-                        </div>
-
-                        <div class="col s6 center-align"><i class="medium material-icons">label</i>
-                        </div>
-                        <div class="col s6 center-align"><a href="Manage"><i class="medium material-icons">navigation</i></a></div>
-
-
                     </div>
-                </div>
+                </div></div>
 
             </div>
         </div>

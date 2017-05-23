@@ -183,7 +183,7 @@ h1 {
     border-style: solid;
     border-color: #0097a7;
     border-width: 1px;
-    height: 20vh;
+    height: 35vh;
     overflow-y: scroll;
     background-color: #00695c;
     color: white;
@@ -195,6 +195,10 @@ h1 {
 
     border-bottom: dotted;
     border-width: 1px;
+}
+
+.result div:first-child:hover {
+    cursor: pointer;
 }
 
 .hideUnhide {
@@ -221,6 +225,14 @@ float: left;
 
 #searchButton {
     margin-top:1rem;
+    height: 2rem;
+    font-size:0.8rem;
+    padding-right: 1rem;
+    padding-left: 1rem;
+}
+
+#searchIcon {
+
 }
 
 label {
@@ -245,6 +257,12 @@ label {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.loaderbox
+{
+
+    display: none;
 }
 
 

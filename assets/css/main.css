@@ -201,7 +201,7 @@ h1 {
 }
 .result {
     padding-top: 1rem;
-
+overflow-y: hidden;
     border-bottom: dotted;
     border-width: 1px;
 }

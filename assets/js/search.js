@@ -1,5 +1,5 @@
-var testLong = 3.101275;
-var testLat = 51.066835;
+var testLong = 0;
+var testLat = 0;
 var testType = ""
 var map;
 var service;
@@ -8,6 +8,7 @@ var markers = [];
 var myLocation = new google.maps.LatLng(testLat, testLong);
 var icons = ["call_received", "call_made"];
 var iconstate = 0;
+var firstCenter = false;
 
 $(document).ready(
     $('select').material_select(),
@@ -42,11 +43,10 @@ function initEventHandlers() {
 }
 
 function initialize() {
+    console.dir("gmap initialised: " + (map==null));
     getLocation();
-
-    //initializeMap();
-    //search();
-
+    initializeMap();
+    console.dir("gmap initialised: " + (map==null));
 }
 
 function store(jsonData) {
@@ -60,16 +60,8 @@ function store(jsonData) {
 
 }
 
-function localStorageSize() {
-    var size = 0;
-    for (i = 0; i <= localStorage.length - 1; i++) {
-        key = localStorage.key(i);
-        size += lengthInUtf8Bytes(localStorage.getItem(key));
-    }
-    return size;
-}
 
-function getLocation(initializeMap) {
+function getLocation() {
     console.dir("step 1");
     if (navigator.geolocation) {
         navigator.geolocation.watchPosition(showPosition);
@@ -80,10 +72,15 @@ function getLocation(initializeMap) {
 }
 
 function showPosition(position) {
-    console.dir("step 2");
-    testLat = position.coords.latitude;
-    testLong = position.coords.longitude;
-    initializeMap();
+
+    var center = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+    myLocation.latitude =position.coords.latitude;
+    myLocation.longitude =position.coords.longitude; //werkt niet meer voor 1 of andere js rreden
+    if(!firstCenter && !(map == null)){
+        map.setCenter(center);
+        firstCenter = true;
+    }
+
 
 }
 
@@ -93,9 +90,7 @@ function showPosition(position) {
 
 
 function initializeMap() {
-    console.dir(testLat)
-    console.dir("step 3");
-    myLocation = new google.maps.LatLng(testLat, testLong);
+
     map = new google.maps.Map(document.getElementById('map'), {
         center: myLocation,
         zoom: 15
@@ -116,7 +111,7 @@ function search() {
 
 
     var request = {
-        location: myLocation,
+        location: map.getCenter(),
         radius: document.getElementById('range').value * 1000,
         type: document.getElementById('category').value,
         opennow: true

@@ -150,11 +150,6 @@ section {
     width: 100%;
 }
 
-nav {
-height: 10vh;
-}
-
-
 section>div {
     flex: 0 0;
 }
@@ -270,6 +265,31 @@ label {
 
     display: none;
 }
+
+/** Smartphones (landscape) ----------- */
+
+
+@media screen and (orientation:landscape)
+and (min-device-width: 319px)
+and (max-device-width: 480px){
+
+    nav  {
+        height: 8vh;
+
+    }
+
+    nav .brand-logo, #menuButton{
+        font-size: 1rem;
+        line-height: 8vh;
+    }
+
+    .content {
+        margin-top: 0;
+        height: 82vh;
+    }
+
+}
+
 
 
 /* ==========================================================================

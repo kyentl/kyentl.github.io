@@ -3,17 +3,15 @@
 "use strict";
 //get places near: https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=xxx&location=lat,long&radius=meters&opennow&type=type
 
-var testLong = 0;
-var testLat = 0;
+
 var testRadius = 1000;
 var markers = [];
 var map;
 var service;
-
-var myLocation;
-
+var  myLocation = new google.maps.LatLng(0, 0);
 var marker;
 var searchResults = [];
+var firstCenter = false;
 //open now checken, gemoetry>location
 
 
@@ -29,6 +27,7 @@ $(document).ready(
 
 function initialize() {
     getLocation();
+    initializeMap();
     if ((typeof Storage) !== void(0)) {
         loadFromLocalStorage();
         displaySearchResults()
@@ -36,6 +35,7 @@ function initialize() {
     else {
         Materialize.toast('Storage not supported in this browser', 4000);
     }
+
 
 
 
@@ -50,25 +50,26 @@ function loadFromLocalStorage()
 
 }
 
-function test(){
-    console.dir("does this execute");
-}
 
+function getLocation() {
 
-function getLocation(initializeMap) {
-    console.dir("step 1");
     if (navigator.geolocation) {
         navigator.geolocation.watchPosition(showPosition);
     } else {
-        console.dir("no geoloc")
+        Materialize.toast('Geolocation required', 4000);
     }
 
 }
 function showPosition(position) {
-    console.dir("step 2");
-    testLat = position.coords.latitude;
-    testLong = position.coords.longitude;
-    initializeMap();
+    var center = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+    myLocation.latitude =position.coords.latitude;
+    myLocation.longitude =position.coords.longitude; //werkt niet meer voor 1 of andere js rreden
+    if(!firstCenter && !(map == null)){
+        map.setCenter(center);
+        firstCenter = true;
+    }
+
+
 
 }
 
@@ -81,14 +82,14 @@ function deleteMarkers() {
 
 
 function initializeMap() {
-    console.dir(testLat)
-    console.dir("step 3");
- myLocation = new google.maps.LatLng(testLat, testLong);
+
+
     map = new google.maps.Map(document.getElementById('map'), {
         center: myLocation,
         zoom: 15
     });
     service = new google.maps.places.PlacesService(map);
+
 
 }
 

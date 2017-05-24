@@ -30,7 +30,7 @@
         <nav>
             <div class="nav-wrapper cyan darken-2 z-depth-4">
                 <a href="" class="brand-logo">Serenity</a>
-                <a href="#" data-activates="mobile-nav" class="button-collapse right"><i class="material-icons">menu</i></a>
+                <a href="#" data-activates="mobile-nav" class="button-collapse right"><i class="material-icons" id="menuButton">menu</i></a>
                 <ul class="right hide-on-med-and-down">
                     <li><a href="manage.html">Manage</a></li>
                     <li><a href="mobile.html">Log out</a></li>
@@ -72,11 +72,7 @@
         </div>
     </div>
 
-  <!--  <div class="container" id="mapscontainer">
-        <div class="row">
 
-        </div>
-    </div>-->
     <div id="map"></div>
 </section>
 <script>window.jQuery || document.write('<script src="assets/js/vendor/jquery-{{JQUERY_VERSION}}.min.js"><\/script>')</script>
@@ -92,7 +88,7 @@
     });
 </script>
 
-<script type="text/javascript" src="https://maps.google.com/maps/api/js?key=AIzaSyAwFXi06r3fXhg-g8e19amfNrWKTDQP5KA&libraries=places"></script>
+<script src="https://maps.google.com/maps/api/js?key=AIzaSyAwFXi06r3fXhg-g8e19amfNrWKTDQP5KA&libraries=places"></script>
 
 <script src="assets/js/main.js"></script>
 </body>

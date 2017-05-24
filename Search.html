@@ -34,96 +34,95 @@
             <a href="#" data-activates="mobile-nav" class="button-collapse right"><i class="material-icons" id="menuButton">menu</i></a>
             <ul class="right hide-on-med-and-down">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="Manage">Manage</a></li>
-                <li><a href="mobile.html">Log out</a></li>
+
             </ul>
             <ul class="side-nav teal darken-3" id="mobile-nav">
                 <li><a href="index.html"><i class="material-icons">home</i>Home</a></li>
-                <li><a href="Manage"><i class="material-icons">settings</i>Manage</a></li>
-                <li><a href="mobile.html"><i class="material-icons">power_settings_new</i>Logout</a></li>
-            </ul>
-        </div>
-    </nav>
-</header>
-<section class="content">
+                <!-- <li><a href="Manage"><i class="material-icons">settings</i>Manage</a></li>
+                  <li><a href="mobile.html"><i class="material-icons">power_settings_new</i>Logout</a></li>-->
+              </ul>
+          </div>
+      </nav>
+  </header>
+  <section class="content">
 
-    <div class="container" id="searchContainer">
-        <div class="row">
-            <a class="btn-floating btn-large waves-effect waves-light teal darken-3" id="searchIcon"><i class="material-icons">search</i></a>
-            <form>
+      <div class="container" id="searchContainer">
+          <div class="row">
+              <a class="btn-floating btn-large waves-effect waves-light teal darken-3" id="searchIcon"><i class="material-icons">search</i></a>
+              <form>
 
-                <div class="col s12"><select name="category" class="validate" id="category" required>
-                    <option value="" selected disabled>All categories</option>
-                    <option value="movie_theater">movie theaters</option>
-                    <option value="cafe">cafes</option>
-                    <option value="bar">bars</option>
-                    <option value="store">stores</option>
-                    <option value="shopping_mall">shopping malls</option>
-                    <option value="stadium">stadiums</option>
-                    <option value="gym">gyms</option>
-                    <option value="train_station">train stations</option>
-                    <option value="musuem">museums</option>
-                    <option value="restaurant">restaurants</option>
-                </select></div>
-
-
-                <div class="col s12">
-                    <label for="rangeSlider">Range</label>
-                    <div class="flex">
-                        <div id="rangeSlider"></div>
-
-                        <input type="number" min="1" max="10" step="1" id="range" class="validate" placeholder="5">
-                        <span>km</span></div>
-                </div>
-
-                <div class="col s12"><button class="btn waves-effect waves-light" type="submit" id="searchButton" name="action">Search
-                    <i class="material-icons right">send</i>
-                </button></div>
-                
-            </form>
-        </div>
-    </div>
+                  <div class="col s12"><select name="category" class="validate" id="category" required>
+                      <option value="" selected disabled>All categories</option>
+                      <option value="movie_theater">movie theaters</option>
+                      <option value="cafe">cafes</option>
+                      <option value="bar">bars</option>
+                      <option value="store">stores</option>
+                      <option value="shopping_mall">shopping malls</option>
+                      <option value="stadium">stadiums</option>
+                      <option value="gym">gyms</option>
+                      <option value="train_station">train stations</option>
+                      <option value="musuem">museums</option>
+                      <option value="restaurant">restaurants</option>
+                  </select></div>
 
 
-    <div class="container" id="locationscontainer">
-        
-        <div class="row">
-            <div class="col s9"><h1>Search results</h1></div>
-            <div class="col s3 center-align" id="sortspan"><a class="waves-effect waves-teal btn-flat" id="sortButton"><i class="material-icons right">call_received</i>Check-ins</a></div>
-            <div class="col s12 scrollbox" id="searchResults">
-                <div class="loaderbox center-align" ><div class="preloader-wrapper big active center-align valign-wrapper">
-                    <div class="spinner-layer spinner-blue-only">
-                        <div class="circle-clipper left">
-                            <div class="circle"></div>
-                        </div><div class="gap-patch">
-                        <div class="circle"></div>
-                    </div><div class="circle-clipper right">
-                        <div class="circle"></div>
-                    </div>
-                    </div>
-                </div></div>
+                  <div class="col s12">
+                      <label for="rangeSlider">Range</label>
+                      <div class="flex">
+                          <div id="rangeSlider"></div>
 
-            </div>
-        </div>
-    </div>
-    <div id="map"></div>
+                          <input type="number" min="1" max="10" step="1" id="range" class="validate" placeholder="5">
+                          <span>km</span></div>
+                  </div>
 
-</section>
-<script>window.jQuery || document.write('<script src="assets/js/vendor/jquery-{{JQUERY_VERSION}}.min.js"><\/script>')</script>
-<script src="assets/js/plugins.js"></script>
+                  <div class="col s12"><button class="btn waves-effect waves-light" type="submit" id="searchButton" name="action">Search
+                      <i class="material-icons right">send</i>
+                  </button></div>
 
-<script src="assets/js/nouislider.min.js"></script>
-<script>
-
-    $(".button-collapse").sideNav({
-        menuWidth: 200, // Default is 300
-        edge: 'right', // Choose the horizontal origin
+              </form>
+          </div>
+      </div>
 
 
-    });
-</script>
-<script src="assets/js/search.js"></script>
+      <div class="container" id="locationscontainer">
+
+          <div class="row">
+              <div class="col s9"><h1>Search results</h1></div>
+              <div class="col s3 center-align" id="sortspan"><a class="waves-effect waves-teal btn-flat" id="sortButton"><i class="material-icons right">call_received</i>Check-ins</a></div>
+              <div class="col s12 scrollbox" id="searchResults">
+                  <div class="loaderbox center-align" ><div class="preloader-wrapper big active center-align valign-wrapper">
+                      <div class="spinner-layer spinner-blue-only">
+                          <div class="circle-clipper left">
+                              <div class="circle"></div>
+                          </div><div class="gap-patch">
+                          <div class="circle"></div>
+                      </div><div class="circle-clipper right">
+                          <div class="circle"></div>
+                      </div>
+                      </div>
+                  </div></div>
+
+              </div>
+          </div>
+      </div>
+      <div id="map"></div>
+
+  </section>
+  <script>window.jQuery || document.write('<script src="assets/js/vendor/jquery-{{JQUERY_VERSION}}.min.js"><\/script>')</script>
+  <script src="assets/js/plugins.js"></script>
+
+  <script src="assets/js/nouislider.min.js"></script>
+  <script>
+
+      $(".button-collapse").sideNav({
+          menuWidth: 200, // Default is 300
+          edge: 'right', // Choose the horizontal origin
 
 
-</body>
-</html>
+      });
+  </script>
+  <script src="assets/js/search.js"></script>
+
+
+  </body>
+  </html>

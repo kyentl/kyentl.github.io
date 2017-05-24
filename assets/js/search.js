@@ -194,7 +194,7 @@ function displaySearchResults() {
     deleteMarkers();
     for (var i = 0; i < searchResults.length; i++) {
         var place = searchResults[i];
-        $('#searchResults').append('<div class="result" id="' + i + '"> <div class="row"> <div class="col s8"><span id="name' + i + '"></span></div> <div class="col s1" id="distance' + i + '"></div> <div class="col s3 center-align" id="hereNow' + i + '"></div> </div> <div class="row hideUnhide" id="hideUnhide' + i + '"> <div class="col s12"><span id="address' + i + '">Near: </span> <span id="openNow' + i + '"></span> <span id="maxHour' + i + '">Open until:</span></div> <div class="col s6"></div> <div class="col s6"></div> <div class="col s6 center-align"><i class="medium material-icons save" id="save' + i + '">label</i> </div> <div class="col s6 center-align"><a href="Manage"><i class="medium material-icons navigate" id="navigate' + i + '">navigation</i></a></div></div> </div>')
+        $('#searchResults').append('<div class="result" id="' + i + '"> <div class="row"> <div class="col s8"><span id="name' + i + '"></span></div> <div class="col s1" id="distance' + i + '"></div> <div class="col s3 center-align" id="hereNow' + i + '"></div> </div> <div class="row hideUnhide" id="hideUnhide' + i + '"> <div class="col s12"><span id="address' + i + '">Near: </span> <span id="openNow' + i + '"></span> <span id="openUntil' + i + '"></span></div> <div class="col s6"></div> <div class="col s6"></div> <div class="col s6 center-align"><i class="waves-effect waves-light medium material-icons save" id="save' + i + '">label</i> </div> <div class="col s6 center-align"><a href="" class="navlink"><i class="waves-effect waves-light medium material-icons navigate" id="navigate' + i + '">navigation</i></a></div></div> </div>')
 
         $('#name' + i).html(place.name);
         $('#address' + i).append(place.vicinity);
@@ -220,10 +220,16 @@ function displaySearchResults() {
 
     }
     $(".result div:first-child").click(function () {
-        console.dir("click registered");
+
         var id = $(this).parent().attr('id');
         $("#hideUnhide" + id).toggle(400);
     })
+    $(".navlink").attr("href", function () {
+        var string = "https://www.google.com/maps/dir/?api=1&dir_action=navigate&destination=" ;
+        var placeid = searchResults[$(this).parent().parent().parent().attr('id')].vicinity; //place idstring in de toekomst doen,werkt op dit moment niet correct wanneer dooorgegeven aan google.
+    return string + placeid;
+    });
+
     $(".save").click(function () {
         var id = $(this).parent().parent().parent().attr('id');
         console.dir(id);
@@ -250,7 +256,7 @@ function insertionSort(data) { //
         }
     }
 
-
+/*
     var len = items.length,     // number of items in the array
         value,                      // the value currently being compared
         i,                          // index into unsorted section
@@ -265,14 +271,14 @@ function insertionSort(data) { //
          * Whenever the value in the sorted section is greater than the value
          * in the unsorted section, shift all items in the sorted section over
          * by one. This creates space in which to insert the value.
-         */
+
         for (j = i - 1; j > -1 && items[j] > value; j--) {
             items[j + 1] = items[j];
         }
 
         items[j + 1] = value;
     }
-
+*/
     return items.concat(unknownItems);
 }
 

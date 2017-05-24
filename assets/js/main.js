@@ -28,9 +28,17 @@ $(document).ready(
 function initialize() {
     getLocation();
     initializeMap();
+    initWorkers();
     if ((typeof Storage) !== void(0)) {
         loadFromLocalStorage();
-        displaySearchResults()
+
+            try {displaySearchResults()}
+            catch (e)
+            {
+                Materialize.toast('No locations saved yet', 4000);
+            }
+
+
     }
     else {
         Materialize.toast('Storage not supported in this browser', 4000);
@@ -41,11 +49,35 @@ function initialize() {
 
 }
 
+
+function remove(id) {
+    localStorage.removeItem(id);
+
+}
+
+
+function initWorkers(){
+
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('assets/js/sw.js')
+            .then(function(reg) {
+                // registration worked
+                console.log('Registration succeeded. Scope is ' + reg.scope);
+            }).catch(function(error) {
+            // registration failed
+            console.log('Registration failed with ' + error);
+        });
+    }
+}
+
 function loadFromLocalStorage()
 {
     for (var i = 0; i < localStorage.length; i++) {
-       var result = localStorage.getItem(i);
-        searchResults.push(JSON.parse(result));
+       var result = JSON.parse(localStorage.getItem(i));
+       console.dir(result);
+         //check if record isnt corrupted
+           searchResults.push(result);
+
     }
 
 }
@@ -100,11 +132,11 @@ function displaySearchResults() {
     deleteMarkers();
     for (var i = 0; i < searchResults.length; i++) {
         var place = searchResults[i];
-        $('#mylocations').append('<div class="result" id="' + i + '"> <div class="row"> <div class="col s8"><span id="name' + i + '"></span></div> <div class="col s1" id="distance' + i + '"></div> <div class="col s3 center-align" id="hereNow' + i + '"></div> </div> <div class="row hideUnhide" id="hideUnhide' + i + '"> <div class="col s12"><span id="address' + i + '">Near: </span> <span id="openNow' + i + '"></span> <span id="maxHour' + i + '">Open until:</span></div> <div class="col s6"></div> <div class="col s6"></div> <div class="col s6 center-align"><i class="medium material-icons save" id="save' + i + '">label</i> </div> <div class="col s6 center-align"><a href="Manage"><i class="medium material-icons navigate" id="navigate' + i + '">navigation</i></a></div></div> </div>')
+        $('#mylocations').append('<div class="container"><div class="result" id="' + i + '"> <div class="row"> <div class="col s9"><span id="name' + i + '"></span></div> <div class="col s1" id="distance' + i + '"></div> <div class="col s3 center-align" id="icon' + i + '"></div> </div> <div class="row hideUnhide" id="hideUnhide' + i + '"> <div class="col s12"><span id="address' + i + '">Near: </span> <span id="openNow' + i + '"></span> <span id="openUntil' + i + '"></span></div> <div class="col s6"></div> <div class="col s6"></div> <div class="col s6 center-align"><i class="waves-effect waves-light medium material-icons save" id="save' + i + '">delete</i> </div> <div class="col s6 center-align"><a href="" class="navlink" target="_blank"><i class="waves-effect waves-light  medium material-icons navigate" id="navigate' + i + '">navigation</i></a></div></div> </div></div>')
 
         $('#name' + i).html(place.name);
         $('#address' + i).append(place.vicinity);
-        $('#hereNow' + (i)).append(place.hereNow);
+        //Icoon van placetype toevoegen, zit al in searchResults en is plaats voorzien bij #icon
 
         if (place.hasOwnProperty("opening_hours")) {
             if (!place.opening_hours.open_now) {
@@ -130,9 +162,16 @@ function displaySearchResults() {
         var id = $(this).parent().attr('id');
         $("#hideUnhide" + id).toggle(400);
     })
+    $(".navlink").attr("href", function () {
+        var string = "https://www.google.com/maps/dir/?api=1&dir_action=navigate&destination=" ;
+        var placeid = searchResults[$(this).parent().parent().parent().attr('id')].vicinity; //place idstring in de toekomst doen,werkt op dit moment niet correct wanneer dooorgegeven aan google.
+        return string + placeid;
+    });
+
     $(".save").click(function () {
         var id = $(this).parent().parent().parent().attr('id');
-        console.dir(id);
-        store(searchResults[id]);
+        remove(id);
+        searchResults.splice(id, 1);
+        displaySearchResults();
     })
 }

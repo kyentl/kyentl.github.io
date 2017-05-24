@@ -1,15 +1,15 @@
 # humanstxt.org/
-# The humans responsible & technology colophon
+# The humansresponsible & technology colophon
 
 # TEAM
 
-    <name> -- <role> -- <twitter>
+    
 
 # THANKS
 
-    <name>
+  Foursquare guy who asked how I was doing in an email
 
 # TECHNOLOGY COLOPHON
 
     CSS3, HTML5
-    Apache Server Configs, jQuery, Modernizr, Normalize.css
+    Apache Server Configs, jQuery, Normalize.css

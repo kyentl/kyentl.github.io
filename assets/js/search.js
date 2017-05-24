@@ -52,7 +52,18 @@ function initialize() {
 function store(jsonData) {
     if ((typeof Storage) !== void(0)) {
         var toStore = JSON.stringify(jsonData);
-        localStorage.setItem(localStorage.length, toStore);
+        var keyToGive;
+        var found = false;
+        var i=0;
+        while (!found){
+            if (localStorage.getItem(i) === null) {
+                keyToGive = i;
+                found = true
+
+            }
+            i = i+1;
+        }
+        localStorage.setItem(keyToGive, toStore);
     }
     else {
         Materialize.toast('Storage not supported in this browser', 4000);

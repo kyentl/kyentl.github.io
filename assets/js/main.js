@@ -72,9 +72,9 @@ function initWorkers(){
 
 function loadFromLocalStorage()
 {
-    for (var i = 0; i < localStorage.length; i++) {
-       var result = JSON.parse(localStorage.getItem(i));
-       console.dir(result);
+    for (var key in localStorage) {
+       var result = JSON.parse(localStorage.getItem(key));
+
          //check if record isnt corrupted
            searchResults.push(result);
 
